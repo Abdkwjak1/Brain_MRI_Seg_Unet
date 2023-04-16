@@ -92,7 +92,7 @@ def dice_coefficients(y_true,y_pred,smooth=100):
 
 
 def dice_coefficients_loss(y_true,y_pred,smooth=100):
-  return -dice_coefficients(y_true,y_pred)
+  return 1-dice_coefficients(y_true,y_pred)
 
 def iou(y_true,y_pred,smooth=100):
   ## we put multibly cuz we need to get one only if the mask and the prediction have 1 for each pixel

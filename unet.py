@@ -13,14 +13,14 @@ def unet(input_size=(256,256,3)):
   bn1 = Activation("relu")(conv1)
   conv1 = Conv2D(filters=64,kernel_size=(3,3),padding="same")(bn1)
   bn1 = Activation("relu")(conv1)
-  bn1 = Activation("relu")(bn1)
+  # bn1 = Activation("relu")(bn1)
   pool1 = MaxPooling2D(pool_size=(2,2))(bn1)
 
   conv2 = Conv2D(filters=128,kernel_size=(3,3),padding='same')(pool1)
   bn2 = Activation("relu")(conv2)
   conv2 = Conv2D(filters=128,kernel_size=(3,3),padding="same")(bn2)
   bn2 = Activation("relu")(conv2)
-  bn2 = Activation("relu")(bn2)
+  # bn2 = Activation("relu")(bn2)
   pool2 = MaxPooling2D(pool_size=(2,2))(bn2)
 
 
@@ -28,7 +28,7 @@ def unet(input_size=(256,256,3)):
   bn3 = Activation("relu")(conv3)
   conv3 = Conv2D(filters=256,kernel_size=(3,3),padding="same")(bn3)
   bn3 = Activation("relu")(conv3)
-  bn3 = Activation("relu")(bn3)
+  # bn3 = Activation("relu")(bn3)
   pool3 = MaxPooling2D(pool_size=(2,2))(bn3)
 
 
@@ -36,7 +36,7 @@ def unet(input_size=(256,256,3)):
   bn4 = Activation("relu")(conv4)
   conv4 = Conv2D(filters=512,kernel_size=(3,3),padding="same")(bn4)
   bn4 = Activation("relu")(conv4)
-  bn4 = Activation("relu")(bn4)
+  # bn4 = Activation("relu")(bn4)
   pool4 = MaxPooling2D(pool_size=(2,2))(bn4)
 
   conv5 = Conv2D(filters=1024,kernel_size=(3,3),padding=("same"))(pool4)
