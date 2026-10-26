@@ -73,20 +73,22 @@ Raw data: [docs/assets/](docs/assets/).
 
 ## Results
 
-Baseline run (16 filters, constant LR 1e-3, 30 epochs, patient-level split), evaluated once on the held-out
-test set (16 patients, 549 slices):
+16 filters (1.95 M params), 30 epochs, patient-level split, evaluated once on the held-out test set
+(16 patients, 549 slices). The two runs differ only in the learning-rate schedule.
 
-| Metric | Value |
-|---|---|
-| Dice, all slices | 0.815 |
-| Dice, tumour slices only | 0.703 |
-| IoU, tumour slices only | 0.609 |
-| Tumour detection recall | 0.923 |
-| False-positive rate on tumour-free slices | 0.130 |
-| Dice, per-patient mean | 0.818 |
+| Metric | Constant LR | Cosine LR (default) |
+|---|---|---|
+| Dice, all slices | 0.815 | 0.869 |
+| Dice, tumour slices only | 0.703 | 0.701 |
+| IoU, tumour slices only | 0.609 | 0.605 |
+| Tumour detection recall | 0.923 | 0.906 |
+| False-positive rate on tumour-free slices | 0.130 | 0.049 |
+| Dice, per-patient mean | 0.818 | 0.867 |
 
-This is a first baseline; tuning is not done (see [HANDOFF.md](HANDOFF.md)). The Dice 0.91 reported in the
-original notebook used random slice-level splits and the test set for model selection, so it is not comparable.
+The cosine schedule mainly cuts false positives on tumour-free slices; segmentation quality on slices that
+contain a tumour is unchanged at about 0.70 Dice, which is the main thing left to improve
+(see [HANDOFF.md](HANDOFF.md)). The Dice 0.91 reported in the original notebook used random slice-level
+splits and the test set for model selection, so it is not comparable.
 
 ## Tests
 
