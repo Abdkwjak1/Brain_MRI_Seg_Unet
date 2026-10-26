@@ -1,0 +1,10 @@
+name: brain-mri-unet
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - tensorflow[and-cuda]>=2.16   # drop "[and-cuda]" for a CPU-only machine
+      - huggingface_hub
+      - -e .[dev]
