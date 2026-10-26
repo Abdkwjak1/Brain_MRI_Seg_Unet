@@ -1,0 +1,23 @@
+# Default experiment: sized to train comfortably on a 4 GB GPU (GTX 1650 Ti class).
+data:
+  root: Dataset/lgg-mri-segmentation
+  image_size: 256
+  val_fraction: 0.15
+  test_fraction: 0.15
+  augment: true
+  seed: 42
+model:
+  base_filters: 16     # 32 -> 7.8M params, 64 -> classic 31M-parameter U-Net (see large.yaml)
+  depth: 4
+  dropout: 0.1
+  batch_norm: true
+train:
+  epochs: 30
+  batch_size: 8        # 4 GB GPU; raise on larger cards
+  learning_rate: 0.001
+  loss: bce_dice
+  lr_schedule: cosine  # cosine | plateau | constant
+  mixed_precision: false
+  early_stopping_patience: 15
+  lr_patience: 5
+  seed: 42

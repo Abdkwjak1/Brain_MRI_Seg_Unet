@@ -1,0 +1,13 @@
+# Tiny config used by tests and quick sanity runs (seconds on CPU).
+data:
+  image_size: 64
+  augment: true
+model:
+  base_filters: 8
+  depth: 3
+  dropout: 0.0
+train:
+  epochs: 3
+  batch_size: 8
+  learning_rate: 0.003
+  early_stopping_patience: 5

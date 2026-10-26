@@ -1,0 +1,23 @@
+# Higher-capacity variant (7.8M params). Needs a GPU with >= 6-8 GB at batch 8, or use batch_size: 4.
+data:
+  root: Dataset/lgg-mri-segmentation
+  image_size: 256
+  val_fraction: 0.15
+  test_fraction: 0.15
+  augment: true
+  seed: 42
+model:
+  base_filters: 32
+  depth: 4
+  dropout: 0.1
+  batch_norm: true
+train:
+  epochs: 40
+  batch_size: 8        # 4 GB GPU; raise on larger cards
+  learning_rate: 0.001
+  loss: bce_dice
+  lr_schedule: cosine  # cosine | plateau | constant
+  mixed_precision: false
+  early_stopping_patience: 15
+  lr_patience: 5
+  seed: 42

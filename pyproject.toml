@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brainseg"
+version = "1.0.0"
+description = "U-Net brain-tumour segmentation on LGG MRI: training, evaluation, inference and a Streamlit demo."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "tensorflow>=2.16",
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "opencv-python-headless",
+  "matplotlib",
+  "pillow",
+  "pyyaml",
+  "tqdm",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.40"]
+dev = ["pytest", "pytest-cov", "ruff", "streamlit>=1.40"]
+
+[project.scripts]
+brainseg-train = "brainseg.train:main"
+brainseg-eval = "brainseg.evaluate:main"
+brainseg-predict = "brainseg.predict:main"
+brainseg-benchmark = "brainseg.benchmark:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+  "slow: trains a model end-to-end (tens of seconds)",
+  "perf: performance / latency budgets",
+  "ui: Streamlit UI tests",
+  "realdata: needs the real LGG dataset under Dataset/",
+]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::UserWarning"]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests", "app"]
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E702", "E731"]  # compact one-liners are used deliberately in tests
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
