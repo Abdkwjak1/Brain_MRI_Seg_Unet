@@ -1,0 +1,64 @@
+[
+  {
+    "config": {
+      "size": 256,
+      "base_filters": 16,
+      "depth": 4,
+      "batch_size": 8
+    },
+    "params": 1945521,
+    "weights_mb": 7.4,
+    "latency_ms_batch1": {
+      "mean": 10.376095300034649,
+      "p50": 9.624188999623584,
+      "p95": 12.899457300272843
+    },
+    "throughput_slices_per_s": 143.04366310901722,
+    "device": "/physical_device:GPU:0",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "tensorflow": "2.21.0",
+    "train_ms_per_batch": 74.82401180013767,
+    "train_slices_per_s": 53.4587748473631
+  },
+  {
+    "config": {
+      "size": 256,
+      "base_filters": 32,
+      "depth": 4,
+      "batch_size": 8
+    },
+    "params": 7768929,
+    "weights_mb": 29.6,
+    "latency_ms_batch1": {
+      "mean": 22.36076835010863,
+      "p50": 22.22683700028938,
+      "p95": 23.684333450137274
+    },
+    "throughput_slices_per_s": 61.20675979021093,
+    "device": "/physical_device:GPU:0",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "tensorflow": "2.21.0",
+    "train_ms_per_batch": 188.5054470999421,
+    "train_slices_per_s": 21.219545968235465
+  },
+  {
+    "config": {
+      "size": 256,
+      "base_filters": 64,
+      "depth": 4,
+      "batch_size": 8
+    },
+    "params": 31049409,
+    "weights_mb": 118.4,
+    "latency_ms_batch1": {
+      "mean": 69.02028799995605,
+      "p50": 69.00856850006676,
+      "p95": 69.79404449948561
+    },
+    "throughput_slices_per_s": 21.35314963699257,
+    "device": "/physical_device:GPU:0",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "tensorflow": "2.21.0",
+    "train_error": "ResourceExhaustedError (out of memory at batch 4)"
+  }
+]

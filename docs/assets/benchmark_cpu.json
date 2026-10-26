@@ -1,0 +1,44 @@
+[
+  {
+    "config": {
+      "size": 256,
+      "base_filters": 16,
+      "depth": 4,
+      "batch_size": 8
+    },
+    "params": 1945521,
+    "weights_mb": 7.4,
+    "latency_ms_batch1": {
+      "mean": 29.430665167031595,
+      "p50": 29.024152999681974,
+      "p95": 32.017732000440446
+    },
+    "throughput_slices_per_s": 33.8770968737097,
+    "device": "CPU",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "tensorflow": "2.21.0",
+    "train_ms_per_batch": 758.535980600027,
+    "train_slices_per_s": 5.273316101414027
+  },
+  {
+    "config": {
+      "size": 256,
+      "base_filters": 32,
+      "depth": 4,
+      "batch_size": 8
+    },
+    "params": 7768929,
+    "weights_mb": 29.6,
+    "latency_ms_batch1": {
+      "mean": 70.87167416648299,
+      "p50": 70.53110400011064,
+      "p95": 71.99545224989379
+    },
+    "throughput_slices_per_s": 12.649345593706762,
+    "device": "CPU",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "tensorflow": "2.21.0",
+    "train_ms_per_batch": 1822.0956023998951,
+    "train_slices_per_s": 2.195274493133934
+  }
+]
